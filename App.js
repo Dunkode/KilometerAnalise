@@ -1,12 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import InformData from './src/layout/InformData'
+import MedianResult from './src/layout/MedianResult'
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRoute='InformData'>
+
+        <Stack.Screen
+          name='InformData'
+          component={InformData}
+          options={{
+            headerShown:false
+            }}
+          />
+        
+        <Stack.Screen
+          name='MedianResult'
+          component={MedianResult}
+          options={{
+            headerShown:false
+            }}
+          />
+        
+      </Stack.Navigator>      
+
+    </NavigationContainer>
   );
 }
 
